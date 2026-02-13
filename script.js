@@ -233,7 +233,7 @@ function drawText() {
         
         // Definiamo le frasi separate per gestirle meglio
         let riga1 = "Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.";
-        let riga2 = "Grazie perché con te posso essere stanco, scemo, pensieroso, ma comunque mi sento a casa.";
+        let riga2 = "Grazie perché con te mi sento sempre a casa";
         let riga3 = "Sei la mia persona preferita!";
 
         if (window.innerWidth < 600) {
