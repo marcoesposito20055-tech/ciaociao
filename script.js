@@ -100,7 +100,7 @@ function drawText() {
     // 3. Ci siamo ritrovati...
     if(frameNumber > 1000 && frameNumber < 1250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("ci siamo ritrovati qui, a spendere il resto della nostra vita insieme", canvas.width/2, canvas.height/2);
+        context.fillText("ci siamo ritrovati qui, a spendere il, spero, resto della nostra vita insieme", canvas.width/2, canvas.height/2);
         opacity += 0.01;
     }
     if(frameNumber >= 1250 && frameNumber < 1500){
@@ -128,7 +128,7 @@ function drawText() {
     // 5. Quando non ci sei... (NUOVA)
     if(frameNumber > 2000 && frameNumber < 2250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("Quando non ci sei mi manchi da morire", canvas.width/2, canvas.height/2);
+        context.fillText("e quando non ci sei mi manchi da morire", canvas.width/2, canvas.height/2);
         opacity += 0.01;
     }
     if(frameNumber >= 2250 && frameNumber < 2500){
@@ -230,12 +230,26 @@ function drawText() {
 
     if(frameNumber >= 5250){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
+        
+        // Definiamo le frasi separate per gestirle meglio
+        let riga1 = "Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.";
+        let riga2 = "Grazie perché con te posso essere stanco, scemo, pensieroso, ma comunque mi sento a casa.";
+        let riga3 = "Sei la mia persona preferita!";
+
         if (window.innerWidth < 600) {
-            drawTextWithLineBreaks(["Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.Grazie perchè con te posso essere stanco, scemo, pensieroso, ma comunque mi sento a casa", "Sei la mia persona preferita"], canvas.width / 2, (canvas.height/2 + 60), fontSize, lineHeight);
+            // Versione Mobile (testo molto spezzato)
+            drawTextWithLineBreaks([
+                "Anche quando tutto va male,", 
+                "se non ci fossi non saprei come fare.",
+                "Con te mi sento sempre a casa.",
+                "Sei la mia persona preferita!"
+            ], canvas.width / 2, (canvas.height/2 + 50), fontSize, lineHeight);
         } else {
-            context.fillText("Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.Grazie perchè con te posso essere stanco, scemo, pensieroso, ma comunque mi sento a casa", "Sei la mia persona preferita", canvas.width/2, (canvas.height/2 + 50));
+            // Versione Computer (usiamo drawTextWithLineBreaks anche qui per andare a capo)
+            drawTextWithLineBreaks([riga1, riga2, riga3], canvas.width / 2, (canvas.height/2 + 60), fontSize, lineHeight);
         }
-        secondOpacity += 0.01;
+        
+        if (secondOpacity < 1) secondOpacity += 0.01;
     }
 
     if(frameNumber >= 5600){
