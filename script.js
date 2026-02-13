@@ -218,24 +218,30 @@ function drawText() {
     if(frameNumber == 5000) opacity = 0;
 
     // 11. Messaggio finale progressivo
-    if(frameNumber > 5000){
-        context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
+if(frameNumber > 5000 && frameNumber < 5500){
+        let finalOpacity = calculateOpacity(frameNumber, 5000, 5500); // Se hai la funzione calculateOpacity
+        // Se non hai quella funzione, usa semplicemente 'opacity' e resettala
+        context.fillStyle = `rgba(45, 45, 255, ${opacity})`; 
+        
         if (window.innerWidth < 600) {
             drawTextWithLineBreaks(["Hai questo talento speciale,", "farmi sentire una persona fortunata"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
             context.fillText("Hai questo talento speciale, riuscire a farmi sentire una persona cosi fortunata", canvas.width/2, canvas.height/2);
         }
-        opacity += 0.01;
+        
+        if (frameNumber < 5250) opacity += 0.01; else opacity -= 0.01;
     }
 
-   if(frameNumber >= 5250){
+    if(frameNumber == 5500) opacity = 0; // Reset per sicurezza
+
+    // 12. Messaggio finale - PARTE B (Sento a casa + Ti amo)
+    if(frameNumber >= 5500){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
         
         let riga1 = "Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.";
         let riga2 = "Grazie perché con te mi sento sempre a casa.";
 
         if (window.innerWidth < 600) {
-            // Mobile: Testo più in alto per lasciare spazio
             drawTextWithLineBreaks([
                 "Anche quando tutto va male,", 
                 "se non ci fossi non saprei",
@@ -243,21 +249,21 @@ function drawText() {
                 "Con te mi sento sempre a casa."
             ], canvas.width / 2, (canvas.height/2 - 60), fontSize, lineHeight);
         } else {
-            // Computer: Testo centrato ma leggermente alzato
+            // Alziamo leggermente il testo (-40) per non toccare il Ti amo che verrà dopo
             drawTextWithLineBreaks([riga1, riga2], canvas.width / 2, (canvas.height/2 - 40), fontSize, lineHeight);
         }
         
         if (secondOpacity < 1) secondOpacity += 0.01;
     }
 
-    if(frameNumber >= 5600){
+    // 13. Il finale definitivo
+    if(frameNumber >= 5800){
         context.fillStyle = `rgba(45, 45, 255, ${thirdOpacity})`;
-        // Spostato molto più in basso ( + 120 ) per non toccare le righe sopra
+        // Molto più in basso per sicurezza
         context.fillText("Ti amo Poppy 🤍🤍🤍", canvas.width/2, (canvas.height/2 + 120));
         
         if (thirdOpacity < 1) thirdOpacity += 0.01;
     }
-
     context.shadowColor = "transparent";
     context.shadowBlur = 0;
 }
