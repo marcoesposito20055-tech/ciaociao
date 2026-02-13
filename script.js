@@ -105,7 +105,7 @@ function drawText() {
     }
     if(frameNumber >= 1250 && frameNumber < 1500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("ci siamo ritrovati qui, a spendere il resto della nostra vita insieme", canvas.width/2, canvas.height/2);
+        context.fillText("ci siamo ritrovati qui, a spendere il, spero, resto della nostra vita insieme", canvas.width/2, canvas.height/2);
         opacity -= 0.01;
     }
 
@@ -114,12 +114,12 @@ function drawText() {
     // 4. Da quando ci sei tu... (NUOVA)
     if(frameNumber > 1500 && frameNumber < 1750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("da quando ci sei tu mi capita di sorridere senza motivo", canvas.width/2, canvas.height/2);
+        context.fillText("Da quando ci sei tu mi capita di sorridere senza motivo", canvas.width/2, canvas.height/2);
         opacity += 0.01;
     }
     if(frameNumber >= 1750 && frameNumber < 2000){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("da quando ci sei tu mi capita di sorridere senza motivo", canvas.width/2, canvas.height/2);
+        context.fillText("Da quando ci sei tu mi capita di sorridere senza motivo", canvas.width/2, canvas.height/2);
         opacity -= 0.01;
     }
 
@@ -133,7 +133,7 @@ function drawText() {
     }
     if(frameNumber >= 2250 && frameNumber < 2500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("Quando non ci sei mi manchi da morire", canvas.width/2, canvas.height/2);
+        context.fillText("e quando non ci sei mi manchi da morire", canvas.width/2, canvas.height/2);
         opacity -= 0.01;
     }
 
@@ -142,12 +142,12 @@ function drawText() {
     // 6. Magari un giorno... (NUOVA)
     if(frameNumber > 2500 && frameNumber < 2750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("magari un giorno questa distanza si annullerà", canvas.width/2, canvas.height/2);
+        context.fillText("Magari un giorno questa distanza si annullerà e il nostro desiderio di vivere insieme si avvererà", canvas.width/2, canvas.height/2);
         opacity += 0.01;
     }
     if(frameNumber >= 2750 && frameNumber < 3000){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("magari un giorno questa distanza si annullerà", canvas.width/2, canvas.height/2);
+        context.fillText("Magari un giorno questa distanza si annullerà e il nostro desiderio di vivere insieme si avvererà", canvas.width/2, canvas.height/2);
         opacity -= 0.01;
     }
 
@@ -157,18 +157,18 @@ function drawText() {
     if(frameNumber > 3000 && frameNumber < 3250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         if (window.innerWidth < 600) {
-            drawTextWithLineBreaks(["eppure nonostante questo grande problema,", "c'è una certezza che non cambia:"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+            drawTextWithLineBreaks(["Eppure nonostante questo grande problema,", "c'è una certezza che non cambia:"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
-            context.fillText("eppure nonostante questo grande problema, c'è una certezza che non cambia:", canvas.width/2, canvas.height/2);
+            context.fillText("Eppure nonostante questo grande problema, c'è una certezza che non cambia:", canvas.width/2, canvas.height/2);
         }
         opacity += 0.01;
     }
     if(frameNumber >= 3250 && frameNumber < 3500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         if (window.innerWidth < 600) {
-            drawTextWithLineBreaks(["eppure nonostante questo grande problema,", "c'è una certezza che non cambia:"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+            drawTextWithLineBreaks(["Eppure nonostante questo grande problema,", "c'è una certezza che non cambia:"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
         } else {
-            context.fillText("eppure nonostante questo grande problema, c'è una certezza che non cambia:", canvas.width/2, canvas.height/2);
+            context.fillText("Eppure nonostante questo grande problema, c'è una certezza che non cambia:", canvas.width/2, canvas.height/2);
         }
         opacity -= 0.01;
     }
@@ -206,12 +206,12 @@ function drawText() {
     // 10. Dolce ricordo
     if(frameNumber > 4500 && frameNumber < 4750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("E spero che il nostro rapporto non diventi solo un dolce ricordo", canvas.width/2, canvas.height/2);
+        context.fillText("e spero che il nostro rapporto non diventi solo un dolce ricordo", canvas.width/2, canvas.height/2);
         opacity += 0.01;
     }
     if(frameNumber >= 4750 && frameNumber < 5000){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("E spero che il nostro rapporto non diventi solo un dolce ricordo", canvas.width/2, canvas.height/2);
+        context.fillText("e spero che il nostro rapporto non diventi solo un dolce ricordo", canvas.width/2, canvas.height/2);
         opacity -= 0.01;
     }
 
@@ -231,9 +231,9 @@ function drawText() {
     if(frameNumber >= 5250){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
         if (window.innerWidth < 600) {
-            drawTextWithLineBreaks(["Grazie perchè con te posso essere stanco, scemo, pensieroso, ma comunque mi sento a casa", "Sei la mia persona preferita!"], canvas.width / 2, (canvas.height/2 + 60), fontSize, lineHeight);
+            drawTextWithLineBreaks(["Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.Grazie perchè con te posso essere stanco, scemo, pensieroso, ma comunque mi sento a casa", "Sei la mia persona preferita"], canvas.width / 2, (canvas.height/2 + 60), fontSize, lineHeight);
         } else {
-            context.fillText("Grazie perchè con te posso essere stanco, scemo, pensieroso, ma comunque mi sento a casa Sei la mia persona preferita!", canvas.width/2, (canvas.height/2 + 50));
+            context.fillText("Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.Grazie perchè con te posso essere stanco, scemo, pensieroso, ma comunque mi sento a casa", "Sei la mia persona preferita", canvas.width/2, (canvas.height/2 + 50));
         }
         secondOpacity += 0.01;
     }
