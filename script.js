@@ -11,7 +11,6 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Inizializza le stelle
 for (var i = 0; i < stars; i++) {
     var x = Math.random() * canvas.offsetWidth;
     var y = Math.random() * canvas.offsetHeight;
@@ -51,78 +50,51 @@ function drawText() {
     var fontSize = Math.min(30, window.innerWidth / 24);
     context.font = fontSize + "px Comic Sans MS";
     context.textAlign = "center";
-    
-    // Effetto bagliore
     context.shadowColor = "rgba(45, 45, 255, 1)";
     context.shadowBlur = 8;
 
-    // Frase 1
     if(frameNumber < 250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("Ogni giorno non capisci quanto mi sento fortunato ad averti", canvas.width/2, canvas.height/2);
-        opacity = opacity + 0.01;
+        opacity += 0.01;
     }
     if(frameNumber >= 250 && frameNumber < 500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("Ogni giorno non capisci quanto mi sento fortunato ad averti", canvas.width/2, canvas.height/2);
-        opacity = opacity - 0.01;
+        opacity -= 0.01;
     }
 
     if(frameNumber == 500) opacity = 0;
 
-    // Frase 2
     if(frameNumber > 500 && frameNumber < 750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("Tra miliardi e miliardi di stelle, nel corso di milioni di anni", canvas.width/2, canvas.height/2);
-        opacity = opacity + 0.01;
+        opacity += 0.01;
     }
     if(frameNumber >= 750 && frameNumber < 1000){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("Tra miliardi e miliardi di stelle, nel corso di milioni di anni", canvas.width/2, canvas.height/2);
-        opacity = opacity - 0.01;
+        opacity -= 0.01;
     }
 
     if(frameNumber == 1000) opacity = 0;
 
-    // Frase 3
-    if(frameNumber > 1000 && frameNumber < 1250){
+    if(frameNumber > 1000 && frameNumber < 1500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context.fillText("ad essere qui, e spendere il resto della mia vita con te", canvas.width/2, canvas.height/2);
-        opacity = opacity + 0.01;
-    }
-    if(frameNumber >= 1250 && frameNumber < 1500){
-        context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("ad essere qui, e spendere il resto della mia vita con te", canvas.width/2, canvas.height/2);
-        opacity = opacity - 0.01;
+        opacity += 0.01;
     }
 
-    if(frameNumber == 1500) opacity = 0;
-
-    // Frase 4
-    if(frameNumber > 1500 && frameNumber < 1750){
-        context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("Anche se magari non te lo dico spesso, ti amo davvero tanto", canvas.width/2, canvas.height/2);
-        opacity = opacity + 0.01;
-    }
-    if(frameNumber >= 1750 && frameNumber < 2000){
-        context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
-        context.fillText("Anche se magari non te lo dico spesso, ti amo davvero tanto", canvas.width/2, canvas.height/2);
-        opacity = opacity - 0.01;
-    }
-
-    if(frameNumber == 2000) opacity = 0;
-
-    // Frase Finale
-    if(frameNumber > 2000){
+    if(frameNumber >= 1500){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
-        context.fillText("Sei la mia persona preferita! 🤍", canvas.width/2, canvas.height/2);
-        secondOpacity = secondOpacity + 0.01;
+        context.fillText("Sei la mia persona preferita! 🤍", canvas.width/2, canvas.height/2 + 50);
+        secondOpacity += 0.01;
     }
 
-    if(frameNumber >= 2300){
+    if(frameNumber >= 1800){
         context.fillStyle = `rgba(45, 45, 255, ${thirdOpacity})`;
-        context.fillText("Ti amo Poppy 🤍🤍🤍", canvas.width/2, (canvas.height/2 + 60));
-        thirdOpacity = thirdOpacity + 0.01;
+        context.fillText("Ti amo Poppy 🤍🤍🤍", canvas.width/2, canvas.height/2 + 100);
+        thirdOpacity += 0.01;
     }
 
     context.shadowColor = "transparent";
