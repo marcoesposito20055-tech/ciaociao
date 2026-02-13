@@ -11,7 +11,6 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Funzione per gestire l'opacità fluida (aggiunta)
 function calculateOpacity(currentFrame, start, end) {
     let duration = end - start;
     let progress = currentFrame - start;
@@ -31,7 +30,6 @@ for (var i = 0; i < stars; i++) {
 }
 
 var frameNumber = 0;
-var opacity = 0;
 var secondOpacity = 0;
 var thirdOpacity = 0;
 
@@ -62,8 +60,8 @@ function drawTextWithLineBreaks(lines, x, y, fontSize, lineHeight) {
 }
 
 function drawText() {
-    var fontSize = Math.min(30, window.innerWidth / 24);
-    var lineHeight = 8;
+    var fontSize = Math.min(26, window.innerWidth / 20); // Font leggermente più piccolo per mobile
+    var lineHeight = 10;
 
     context.font = fontSize + "px Comic Sans MS";
     context.textAlign = "center";
@@ -75,7 +73,7 @@ function drawText() {
         let textOpacity = calculateOpacity(frameNumber, 0, 500);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`;
         if (window.innerWidth < 600) {
-            drawTextWithLineBreaks(["Ciao Poppy, ogni giorno non capisci quanto", "mi sento felice di averti nella mia vita"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+            drawTextWithLineBreaks(["Ciao Poppy, ogni giorno", "non capisci quanto mi sento felice", "di averti nella mia vita"], canvas.width / 2, canvas.height / 2 - 30, fontSize, lineHeight);
         } else {
             context.fillText("Ciao Poppy, ogni giorno non capisci quanto mi sento felice di averti nella mia vita", canvas.width/2, canvas.height/2);
         }
@@ -85,21 +83,33 @@ function drawText() {
     if(frameNumber >= 500 && frameNumber < 1000){
         let textOpacity = calculateOpacity(frameNumber, 500, 1000);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`;
-        context.fillText("Tra miliardi di stelle, di persone, nel corso di milioni di anni", canvas.width/2, canvas.height/2);
+        if (window.innerWidth < 600) {
+            drawTextWithLineBreaks(["Tra miliardi di stelle, di persone,", "nel corso di milioni di anni"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+        } else {
+            context.fillText("Tra miliardi di stelle, di persone, nel corso di milioni di anni", canvas.width/2, canvas.height/2);
+        }
     }
 
     // 3. Ci siamo ritrovati...
     if(frameNumber >= 1000 && frameNumber < 1500){
         let textOpacity = calculateOpacity(frameNumber, 1000, 1500);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`;
-        context.fillText("ci siamo ritrovati qui, a spendere il resto della nostra vita insieme", canvas.width/2, canvas.height/2);
+        if (window.innerWidth < 600) {
+            drawTextWithLineBreaks(["ci siamo ritrovati qui, a spendere il,", "resto della nostra vita insieme"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+        } else {
+            context.fillText("ci siamo ritrovati qui, a spendere il resto della nostra vita insieme", canvas.width/2, canvas.height/2);
+        }
     }
 
     // 4. Da quando ci sei tu...
     if(frameNumber >= 1500 && frameNumber < 2000){
         let textOpacity = calculateOpacity(frameNumber, 1500, 2000);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`;
-        context.fillText("Da quando ci sei tu mi capita di sorridere senza motivo", canvas.width/2, canvas.height/2);
+        if (window.innerWidth < 600) {
+            drawTextWithLineBreaks(["Da quando ci sei tu", "mi capita di sorridere senza motivo"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+        } else {
+            context.fillText("Da quando ci sei tu mi capita di sorridere senza motivo", canvas.width/2, canvas.height/2);
+        }
     }
 
     // 5. Quando non ci sei...
@@ -114,7 +124,7 @@ function drawText() {
         let textOpacity = calculateOpacity(frameNumber, 2500, 3000);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`;
         if (window.innerWidth < 600) {
-            drawTextWithLineBreaks(["Magari un giorno questa distanza si annullerà", "e il nostro desiderio di vivere insieme si avvererà"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+            drawTextWithLineBreaks(["Magari un giorno questa distanza", "si annullerà e il nostro desiderio", "di vivere insieme si avvererà"], canvas.width / 2, canvas.height / 2 - 30, fontSize, lineHeight);
         } else {
             context.fillText("Magari un giorno questa distanza si annullerà e il nostro desiderio di vivere insieme si avvererà", canvas.width/2, canvas.height/2);
         }
@@ -125,7 +135,7 @@ function drawText() {
         let textOpacity = calculateOpacity(frameNumber, 3000, 3500);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`;
         if (window.innerWidth < 600) {
-            drawTextWithLineBreaks(["Eppure nonostante questo grande problema,", "c'è una certezza che non cambia:"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+            drawTextWithLineBreaks(["Eppure nonostante questo", "grande problema, c'è una", "certezza che non cambia:"], canvas.width / 2, canvas.height / 2 - 30, fontSize, lineHeight);
         } else {
             context.fillText("Eppure nonostante questo grande problema, c'è una certezza che non cambia:", canvas.width/2, canvas.height/2);
         }
@@ -142,23 +152,30 @@ function drawText() {
     if(frameNumber >= 4000 && frameNumber < 4500){
         let textOpacity = calculateOpacity(frameNumber, 4000, 4500);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`;
-        context.fillText("Anche se magari non te lo dico spesso, ti amo davvero tanto", canvas.width/2, canvas.height/2);
+        if (window.innerWidth < 600) {
+            drawTextWithLineBreaks(["Anche se magari non te lo dico spesso,", "ti amo davvero tanto"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+        } else {
+            context.fillText("Anche se magari non te lo dico spesso, ti amo davvero tanto", canvas.width/2, canvas.height/2);
+        }
     }
 
     // 10. Dolce ricordo
     if(frameNumber >= 4500 && frameNumber < 5000){
         let textOpacity = calculateOpacity(frameNumber, 4500, 5000);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`;
-        context.fillText("e spero che il nostro rapporto non diventi solo un dolce ricordo", canvas.width/2, canvas.height/2);
+        if (window.innerWidth < 600) {
+            drawTextWithLineBreaks(["e spero che il nostro rapporto", "non diventi solo un dolce ricordo"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+        } else {
+            context.fillText("e spero che il nostro rapporto non diventi solo un dolce ricordo", canvas.width/2, canvas.height/2);
+        }
     }
 
     // 11. Messaggio finale progressivo - PARTE A
     if(frameNumber >= 5000 && frameNumber < 5500){
         let textOpacity = calculateOpacity(frameNumber, 5000, 5500);
         context.fillStyle = `rgba(45, 45, 255, ${textOpacity})`; 
-        
         if (window.innerWidth < 600) {
-            drawTextWithLineBreaks(["Hai questo talento speciale,", "farmi sentire una persona fortunata"], canvas.width / 2, canvas.height / 2, fontSize, lineHeight);
+            drawTextWithLineBreaks(["Hai questo talento speciale,", "riuscire a farmi sentire", "una persona cosi fortunata"], canvas.width / 2, canvas.height / 2 - 30, fontSize, lineHeight);
         } else {
             context.fillText("Hai questo talento speciale, riuscire a farmi sentire una persona cosi fortunata", canvas.width/2, canvas.height/2);
         }
@@ -167,28 +184,27 @@ function drawText() {
     // 12. Messaggio finale - PARTE B
     if(frameNumber >= 5500){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
-        
-        let riga1 = "Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.";
-        let riga2 = "Grazie perché con te mi sento sempre a casa.";
-
         if (window.innerWidth < 600) {
             drawTextWithLineBreaks([
                 "Anche quando tutto va male,", 
-                "se non ci fossi non saprei",
-                "proprio come fare.",
-                "Con te mi sento sempre a casa."
-            ], canvas.width / 2, (canvas.height/2 - 60), fontSize, lineHeight);
+                "alla fine penso che se non ci fossi",
+                "non saprei proprio come fare.",
+                "Grazie perché con te mi sento",
+                "sempre a casa."
+            ], canvas.width / 2, (canvas.height/2 - 80), fontSize, lineHeight);
         } else {
-            drawTextWithLineBreaks([riga1, riga2], canvas.width / 2, (canvas.height/2 - 40), fontSize, lineHeight);
+            drawTextWithLineBreaks([
+                "Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.",
+                "Grazie perché con te mi sento sempre a casa."
+            ], canvas.width / 2, (canvas.height/2 - 40), fontSize, lineHeight);
         }
-        
         if (secondOpacity < 1) secondOpacity += 0.01;
     }
 
     // 13. Il finale definitivo
     if(frameNumber >= 5800){
         context.fillStyle = `rgba(45, 45, 255, ${thirdOpacity})`;
-        context.fillText("Ti amo Poppy 🤍🤍🤍", canvas.width/2, (canvas.height/2 + 120));
+        context.fillText("Ti amo Poppy 🤍🤍🤍", canvas.width/2, (canvas.height/2 + 100));
         if (thirdOpacity < 1) thirdOpacity += 0.01;
     }
 
