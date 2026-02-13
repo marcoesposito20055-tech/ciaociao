@@ -48,8 +48,6 @@ function updateStars() {
     }
 }
 
-const button = document.getElementById("valentinesButton");
-
 function drawTextWithLineBreaks(lines, x, y, fontSize, lineHeight) {
     lines.forEach((line, index) => {
         context.fillText(line, x, y + index * (fontSize + lineHeight));
@@ -195,7 +193,6 @@ function drawText() {
         context.fillText("Ti amo🤍🤍🤍", canvas.width/2, (canvas.height/2 + 120));
         thirdOpacity = thirdOpacity + 0.01;
 
-        button.style.display = "block";
     }   
 
      // Reset the shadow effect after drawing the text
