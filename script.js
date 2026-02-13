@@ -122,3 +122,4 @@ function drawText() {
     if(frameNumber >= 1750 && frameNumber < 2000){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         context
+    }
