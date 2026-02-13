@@ -228,25 +228,23 @@ function drawText() {
         opacity += 0.01;
     }
 
-    if(frameNumber >= 5250){
+   if(frameNumber >= 5250){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
         
-        // Definiamo le frasi separate per gestirle meglio
         let riga1 = "Anche quando tutto va male, alla fine penso che se non ci fossi non so come avrei fatto.";
-        let riga2 = "Grazie perché con te mi sento sempre a casa";
-        let riga3 = "Sei la mia persona preferita!";
+        let riga2 = "Grazie perché con te mi sento sempre a casa.";
 
         if (window.innerWidth < 600) {
-            // Versione Mobile (testo molto spezzato)
+            // Mobile: Testo più in alto per lasciare spazio
             drawTextWithLineBreaks([
                 "Anche quando tutto va male,", 
-                "se non ci fossi non saprei come fare.",
-                "Con te mi sento sempre a casa.",
-                "Sei la mia persona preferita!"
-            ], canvas.width / 2, (canvas.height/2 + 50), fontSize, lineHeight);
+                "se non ci fossi non saprei",
+                "proprio come fare.",
+                "Con te mi sento sempre a casa."
+            ], canvas.width / 2, (canvas.height/2 - 60), fontSize, lineHeight);
         } else {
-            // Versione Computer (usiamo drawTextWithLineBreaks anche qui per andare a capo)
-            drawTextWithLineBreaks([riga1, riga2, riga3], canvas.width / 2, (canvas.height/2 + 60), fontSize, lineHeight);
+            // Computer: Testo centrato ma leggermente alzato
+            drawTextWithLineBreaks([riga1, riga2], canvas.width / 2, (canvas.height/2 - 40), fontSize, lineHeight);
         }
         
         if (secondOpacity < 1) secondOpacity += 0.01;
@@ -254,8 +252,10 @@ function drawText() {
 
     if(frameNumber >= 5600){
         context.fillStyle = `rgba(45, 45, 255, ${thirdOpacity})`;
+        // Spostato molto più in basso ( + 120 ) per non toccare le righe sopra
         context.fillText("Ti amo Poppy 🤍🤍🤍", canvas.width/2, (canvas.height/2 + 120));
-        thirdOpacity += 0.01;
+        
+        if (thirdOpacity < 1) thirdOpacity += 0.01;
     }
 
     context.shadowColor = "transparent";
